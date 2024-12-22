@@ -1,0 +1,211 @@
+
+.headNav{
+    width: 1300px;
+    margin: 10px auto;
+}
+.formData1{
+    width: 1300px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 190, 154, 0.1);
+    border-radius: 10px;
+}
+.left1{
+    width: 600px;
+    height: 600px;
+    /*background-color: #00BE9A;*/
+    background-size: cover;
+    overflow: hidden;
+
+}
+.right1{
+    width: 600px;
+    height: 600px;
+}
+.right1 h1{
+    margin-top: 10px;
+}
+.right1 p{
+    font-size: 20px;
+    line-height: 70px;
+}
+.right1 hr{
+    width: 500px;
+    margin-top: 10px;
+}
+.price{
+    color:red;
+    font-size: 30px;
+    font-weight: bold;
+}
+.grade{
+    font-size: 14px;
+    color: #a4a4a4;
+}
+.buyCar{
+    width: 200px;
+    height: 70px;
+    background-color: orangered;
+    text-align: center;
+    align-content: center;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 300px;
+    cursor: pointer;
+}
+.share{
+    margin: 10px;
+    font-size: 12px;
+}
+.share img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.share ul{
+    display: flex;
+    justify-content: flex-start;
+}
+.share ul li{
+
+}
+
+
+.button-checkbox {
+    display: inline-block;
+    margin: 10px;
+
+}
+
+.button-checkbox .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-checkbox .btn:hover {
+    background-color: #e0e0e0;
+}
+
+.button-checkbox input[type="checkbox"]:checked + .btn {
+    background-color: #00be9a;
+    border-color: #00be9a;
+    color: white;
+}
+
+
+.radio-group {
+    display: flex;
+}
+
+.radio-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.radio-btn:hover {
+    background-color: #e0e0e0;
+}
+
+input[type="radio"]:checked + .radio-btn {
+    background-color: #00be9a;
+    border-color: #00be9a;
+    color: white;
+}
+
+#goToIndex{
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    background-color: #5eb69c;
+    color: white;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.formData2{
+    width: 1300px;
+    /*height: 800px;*/
+    margin: 10px auto;
+    background-color: rgba(0, 190, 154, 0.1);
+}
+
+/* 切换栏样式 */
+#navbar {
+    display: flex;
+    width:100%;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px;
+    top: 0;
+    left:0;
+}
+/* 切换栏按钮样式 */
+.nav-item {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+/* 激活状态样式 */
+.active {
+    background-color: #00BE9A; /* 绿色背景表示激活状态 */
+    color: #fff; /* 文字颜色保持白色 */
+}
+/* 鼠标悬停样式 */
+.nav-item:hover {
+    background-color: #555;
+
+}
+/* 内容区域样式 */
+.content-item {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(0, 190, 154, 0.1);
+    border-radius: 5px;
+    /*height: 1000px;*/
+}
+.content-item h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* 显示内容区域的样式 */
+.show {
+    display: block;
+}
+#goodsInfo{
+    width: 800px;
+    height: 300px;
+    margin: 0 auto;
+    border-left: 1px solid #ccc;
+}
+#goodsInfo ul{
+    width: 800px;
+}
+#goodsInfo ul li{
+    font-size: 26px;
+    float: left;
+    padding-right: 30px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    border-right: 5px solid #ccc;
+
+}

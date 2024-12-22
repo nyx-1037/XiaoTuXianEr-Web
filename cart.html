@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小兔鲜儿-新鲜、惠民、快捷！</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/cart.css" />
+  <link rel="stylesheet" href="./css/index2.css">
+  <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+  <!-- <link rel="stylesheet" href="./iconfont/iconfont.css"> -->
+  <link rel="stylesheet" href="./css/base2.css">
+  
+</head>
+
+<body>
+  <div class="shortcut">
+    <div class="wrapper">
+      <ul>
+
+        <li><a href="gerenxinxi.html">七洛殇Crescere的账户</a></li>
+        <li><a href="cart.html">我的购物车</a></li>
+        <li><a href="#">会员中心</a></li>
+        <li><a href="#">帮助中心</a></li>
+        <li><a href="#">在线客服</a></li>
+        <li><a href="#"><span class="iconfont icon-mobile-phone"></span>手机版</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="box">
+    <div class="top">
+      <img src="./images/logo.png" />
+      <button id="goToIndex">关闭</button>
+    </div>
+    <table>
+      <tr class="th">
+        <td><input type="checkbox" checked id="checkAll" /></td>
+        <td>商品照片</td>
+        <td>商品信息</td>
+        <td>单价</td>
+        <td>数量</td>
+        <td>总价</td>
+        <td>操作</td>
+      </tr>
+      <tr id="cartGoods1">
+        <td><input type="checkbox" checked class="ck" /></td>
+        <td><img src="./uploads/goods4.png" /></td>
+        <td>科技布布艺沙发</td>
+        <td class="price">3579.00</td>
+        <td>
+          <button class="minus">-</button>
+          <input type="number" name="number" class="amount" value="1">
+          <button class="plus">+</button>
+        </td>
+        <td class="money">3579.00</td>
+        <td>
+          <p data-name="move">移入收藏</p>
+          <p data-name="drop">删除</p>
+        </td>
+      </tr>
+      <tr id="cartGoods2">
+        <td><input type="checkbox" checked class="ck" /></td>
+        <td><img src="./uploads/goods3.png" /></td>
+        <td>法拉蒙高颜值记事本</td>
+        <td class="price">58.00</td>
+        <td>
+          <button class="minus">-</button>
+          <input type="number" name="number" class="amount" value="1">
+          <button class="plus">+</button>
+        </td>
+        <td class="money">58.00</td>
+        <td>
+          <p data-name="move">移入收藏</p>
+          <p data-name="drop">删除</p>
+        </td>
+      </tr>
+    </table>
+    <div class="foot">
+      <span>商品总计：</span>
+      <span id="totalPrice">3637.00</span>
+      <button class="payMoney">结算</button>
+    </div>
+  </div>
+
+  <script>
+    //全选按钮功能
+    const checkAll = document.querySelector("#checkAll");
+    const cks = document.querySelectorAll("table .ck");
+    //大按钮选小按钮
+    checkAll.addEventListener("click", function () {
+      for (let i = 0; i < cks.length; i++) {
+        cks[i].checked = this.checked;
+      }
+    });
+    //小按钮选大按钮
+    cks.forEach(function (ck) {
+      ck.addEventListener("click", function () {
+        const allChecked =
+          document.querySelectorAll(".ck:checked").length === cks.length;
+        checkAll.checked = allChecked;
+      });
+    });
+
+    //关闭按钮
+    document
+      .getElementById("goToIndex")
+      .addEventListener("click", function () {
+        window.location.href = "index2.html";
+      });
+
+    //购物车结算功能
+    const minus = document.querySelectorAll(".minus");
+    const plus = document.querySelectorAll(".plus");
+    const amount = document.querySelectorAll(".amount");
+    const money = document.querySelectorAll(".money");
+    const price = document.querySelectorAll(".price");
+    const totalPrice = document.querySelector("#totalPrice");
+
+    //计算总价，数量函数
+    function calculateTotalPrice() {
+      let total = 0;
+      for (let i = 0; i < minus.length; i++) {
+        total += parseFloat(money[i].innerHTML);
+      }
+      totalPrice.innerHTML = total.toFixed(2);
+    }
+
+    // 让文本框里的数字更改也能带动后面的总额变化
+    for (let i = 0; i < amount.length; i++) {
+      amount[i].addEventListener("input", function () {
+        let currentValue = parseInt(this.value, 10);
+        if (currentValue <= 200 && currentValue >= 1) {
+          money[i].innerHTML = (parseFloat(price[i].innerHTML) * currentValue).toFixed(2);
+          calculateTotalPrice();
+        } else {
+          this.value = (currentValue > 200 ? 200 : 1).toString();
+          money[i].innerHTML = (parseFloat(price[i].innerHTML) * this.value).toFixed(2);
+          alert("数量需在1-200之间");
+        }
+      });
+    }
+
+
+    //minus按钮
+    for (let i = 0; i < minus.length; i++) {
+      minus[i].addEventListener("click", function () {
+        let currentValue = parseInt(amount[i].value, 10);
+        if (currentValue > 1) {
+          amount[i].value = currentValue - 1;
+        } else {
+          alert("不能再减了，再减就没有了！");
+          amount[i].value = 1;
+        }
+        money[i].innerHTML = (
+          parseFloat(price[i].innerHTML) * amount[i].value
+        ).toFixed(2);
+        calculateTotalPrice();
+      });
+    }
+
+    //plus按钮
+    for (let i = 0; i < plus.length; i++) {
+      plus[i].addEventListener("click", function () {
+        let currentValue = parseInt(amount[i].value, 10);
+        if (currentValue < 200) {
+          amount[i].value = currentValue + 1;
+        } else {
+          alert("不能再加了，数量不能超过最大值");
+          amount[i].value = 200;
+        }
+        money[i].innerHTML = (
+          parseFloat(price[i].innerHTML) * amount[i].value
+        ).toFixed(2);
+        calculateTotalPrice();
+      });
+    }
+
+    //提示信息
+    const yiru = document.querySelectorAll(" table tr ");
+    for (let i = 0; i < yiru.length; i++) {
+      yiru[i].addEventListener("click", function (e) {
+        if (e.target.dataset.name === "move") {
+          if (confirm("移入收藏后，将不在购物车显示，是否继续操作？")) {
+            alert("移入收藏成功！");
+          }
+        }
+        if (e.target.dataset.name === "drop") {
+          if (confirm("您确定要删除商品吗？")) {
+            alert("删除成功！");
+          }
+        }
+      });
+    }
+
+    //结算按钮功能
+    const payMoney = document.querySelector(".foot .payMoney");
+    payMoney.addEventListener("click", function () {
+      //结算按钮
+      calculateTotalPrice();
+      var totalPriceText = totalPrice.innerHTML;
+      if (
+        confirm(
+          `您本次购买的商品信息如下：\n 商品名称：科技布布艺沙发  法拉蒙高颜值记事本;\n 商品总计：${totalPriceText};\n请确认以上信息是否有误！！！`
+        )
+      ) {
+        const box1 = document.getElementById('cartGoods1');
+        const box2 = document.getElementById('cartGoods2');
+        box1.innerHTML = '';
+        box2.innerHTML = '';
+        totalPrice.innerHTML = 0;
+
+        alert("您的订单已提交");
+
+      } else {
+        alert("您的订单已取消");
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小兔鲜儿-新鲜、惠民、快捷！</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./iconfont/iconfont.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/cart.css" />
+  <link rel="stylesheet" href="./css/detailStyle.css" />
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/index2.css">
+  <link rel="stylesheet" href="./css/time.css">
+  <link rel="stylesheet" href="./css/tanchuang.css">
+  <link href="css/elevator.css" type="text/css" rel="stylesheet" />
+  <script src="./js/jquery-1.12.4.js"></script>
+
+
+
+</head>
+
+<body>
+<div class="shortcut">
+  <div class="wrapper">
+    <ul>
+
+      <li><a href="gerenxinxi.html">七洛殇Crescere的账户</a></li>
+      <li><a href="cart.html">我的购物车</a></li>
+      <li><a href="#" onclick=alertNull()>会员中心</a></li>
+
+      <li>
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle">更多帮助&nbsp;<img src="./images/t_arrow.gif"></a>
+          <div class="dropdown-menu">
+            <a href="#" onclick=alertNull()>自助问题解决</a>
+            <a href="#" onclick=alertNull()>联系在线客服</a>
+            <a href="#" onclick=alertNull()>意见反馈与建议</a>
+            <a href="#" onclick=alertNull()>关于我们</a>
+
+          </div>
+        </div>
+      </li>
+      <li><a href="#" onclick=alertNull()><span class="iconfont icon-mobile-phone"></span>手机版</a></li>
+    </ul>
+  </div>
+</div>
+<div class="header wrapper">
+  <div class="logo">
+    <h1><a href="#">小兔鲜儿</a></h1>
+  </div>
+  <div class="nav" style="width: 600px">
+
+  </div>
+  <div class="search">
+    <span class="iconfont icon-search"></span>
+    <input type="text" placeholder="搜一搜">
+  </div>
+  <div class="cart">
+    <a href="cart.html"><span class="iconfont icon-cart-full"></span></a>
+    <i class="count">2</i>
+  </div>
+
+  <button id="goToIndex">返回</button>
+
+
+</div>
+
+<div class="headNav">
+  <h3 id="nowNavID">null : 请从首页点击进入</h3>
+</div>
+
+<div class="formData1">
+
+
+  <div class="left1" id="leftID">
+
+  </div>
+  <div class="right1">
+    <h1 id="h1ID">
+      请从主页点击商品进入详情页！
+    </h1>
+    <hr>
+    <p>价格：<span class="price" id="priceID">null</span></p>
+    <p>累计评价：2万+ <span class="grade">评分：4.5</span></p>
+    <hr>
+    <p class="grade">选择款式</p>
+    <div class="button-checkbox">
+      选择规格：
+      <input type="checkbox" id="default" hidden>
+      <label for="default" class="btn">默认款式</label>
+    </div>
+    <br>
+
+    <div class="radio-group">
+      <p style="line-height: 1.0; margin-left: 10px;font-size: 16px;align-content: center">选择版本：</p>
+
+      <input type="radio" id="option1" name="radioOptions" value="option1" hidden>
+      <label for="option1" class="radio-btn">标准版</label>
+
+      <input type="radio" id="option2" name="radioOptions" value="option2" hidden>
+      <label for="option2" class="radio-btn">Pro</label>
+
+      <input type="radio" id="option3" name="radioOptions" value="option3" hidden>
+      <label for="option3" class="radio-btn">ProMax</label>
+    </div>
+
+  <hr>
+    <div class="share">
+      <ul>
+        <li>
+          <img src="./icon/分享.png">
+        </li>
+        <li>
+          <img src="./icon/微信.png">
+        </li>
+        <li>
+          <img src="./icon/朋友圈.png">
+        </li>
+        <li>
+          <img src="./icon/qq.png">
+        </li>
+        <li>
+        <img src="./icon/QQ空间.png">
+        </li>
+        <li>
+          <img src="./icon/哔哩哔哩.png">
+        </li>
+        <li>
+          <img src="./icon/抖音.png">
+        </li>
+        <li>
+          <img src="./icon/新浪微博.png">
+        </li>
+
+      </ul>
+
+    </div>
+    <hr>
+    <div class="buyCar">
+      加入购物车
+    </div>
+
+  </div>
+</div>
+
+<div class="formData2">
+  <!-- 切换栏 -->
+  <div id="navbar">
+
+    <a class="nav-item active" onclick="switchContent(this, 't1')">商品预览</a>
+    <a class="nav-item" onclick="switchContent(this, 't2')">商品规格</a>
+    <a class="nav-item" onclick="switchContent(this, 't3')">更多推荐</a>
+    <a class="nav-item" onclick="switchContent(this, 't4')">相关商品</a>
+
+  </div>
+
+  <!-- 内容区域 -->
+  <div id="content">
+
+    <div id="t1" class="content-item show">
+      <h1>商品预览</h1>
+      <img src="" id="t1Img">
+    </div>
+
+    <div id="t2" class="content-item">
+      <h1>商品规格</h1>
+      <div id="goodsInfo">
+
+      </div>
+    </div>
+
+    <div id="t3" class="content-item">
+      <h1>更多推荐</h1>
+      <div class="bd">
+        <ul>
+          <li>
+            <a href="#">
+              <div class="pic"><img src="./uploads/recommend1.png" alt=""></div>
+              <div class="txt">
+                <h4>特惠推荐</h4>
+                <p>我猜得到 你的需要</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="pic"><img src="./uploads/recommend2.png" alt=""></div>
+              <div class="txt">
+                <h4>爆款推荐</h4>
+                <p>人气好物推荐</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="pic"><img src="./uploads/recommend3.png" alt=""></div>
+              <div class="txt">
+                <h4>节日礼品一站买全</h4>
+                <p>编辑尽心整理推荐</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="pic"><img src="./uploads/recommend4.png" alt=""></div>
+              <div class="txt">
+                <h4>鲜花园艺</h4>
+                <p>给生活增加仪式感</p>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div id="t4" class="content-item">
+      <h1>相关商品</h1>
+      <div class="bd">
+        <ul>
+          <li>
+            <a href="./detail.html?id=0&title=KN95级莫兰迪色防护口罩&price=79" target="_blank">
+              <div class="pic"><img src="./uploads/goods1.png" alt="KN95级莫兰迪色防护口罩"></div>
+              <div class="txt">
+                <h4>KN95级莫兰迪色防护口罩</h4>
+                <p>¥<span>79</span></p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./detail.html?id=1&title=紫檀外独板三层普洱茶盒&price=566" target="_blank">
+              <div class="pic"><img src="./uploads/goods2.png" alt="紫檀外独板三层普洱茶盒"></div>
+              <div class="txt">
+                <h4>紫檀外独板三层普洱茶盒</h4>
+                <p>¥<span>566</span></p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./detail.html?id=2&title=法拉蒙高颜值记事本可定制&price=58" target="_blank">
+              <div class="pic"><img src="./uploads/goods3.png" alt="法拉蒙高颜值记事本可定制"></div>
+              <div class="txt">
+                <h4>法拉蒙高颜值记事本可定制</h4>
+                <p>¥<span>58</span></p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./detail.html?id=3&title=科技布布艺沙发&price=3579" target="_blank">
+              <div class="pic"><img src="./uploads/goods4.png" alt="科技布布艺沙发"></div>
+              <div class="txt">
+                <h4>科技布布艺沙发</h4>
+                <p>¥<span>3579</span></p>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+<script src="./js/detailJS.js">
+</script>
+
+
+<div class="footer">
+  <div class="wrapper">
+    <div class="service">
+      <ul>
+        <li>
+          <h5></h5>
+          <p>价格亲民</p>
+        </li>
+        <li>
+          <h5></h5>
+          <p>物流快捷</p>
+        </li>
+        <li>
+          <h5></h5>
+          <p>品质新鲜</p>
+        </li>
+        <li>
+          <h5></h5>
+          <p>售后无忧</p>
+        </li>
+      </ul>
+    </div>
+    <div class="help">
+      <div class="left">
+        <dl>
+          <dt>购物指南</dt>
+          <dd><a href="#">购物流程</a></dd>
+          <dd><a href="#">支付方式</a></dd>
+          <dd><a href="#">售后规则</a></dd>
+        </dl>
+        <dl>
+          <dt>配送方式</dt>
+          <dd><a href="#">配送运费</a></dd>
+          <dd><a href="#">配送范围</a></dd>
+          <dd><a href="#">配送时间</a></dd>
+        </dl>
+        <dl>
+          <dt>关于我们</dt>
+          <dd><a href="#">平台规则</a></dd>
+          <dd><a href="#">联系我们</a></dd>
+          <dd><a href="#">问题反馈</a></dd>
+        </dl>
+        <dl>
+          <dt>售后服务</dt>
+          <dd><a href="#">售后政策</a></dd>
+          <dd><a href="#">退款说明</a></dd>
+          <dd><a href="#">取消订单</a></dd>
+        </dl>
+        <dl>
+          <dt>服务热线</dt>
+          <dd><a href="#">在线客服<span class="iconfont icon-customer-service"></span></a></dd>
+          <dd><a href="#">客服电话 400-0000-000</a></dd>
+          <dd><a href="#">工作时间 周一至周日 8:00-18:00</a></dd>
+        </dl>
+      </div>
+      <div class="right">
+        <ul>
+          <li>
+            <div class="pic"><img src="./images/wechat.png" alt=""></div>
+            <p>微信公众号</p>
+          </li>
+          <li>
+            <div class="pic"><img src="./images/app.png" alt=""></div>
+            <p>APP下载二维码</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>
+        <a href="#">关于我们</a>|
+        <a href="#">帮助中心</a>|
+        <a href="#">售后服务</a>|
+        <a href="#">配送与验收</a>|
+        <a href="#">商务合作</a>|
+        <a href="#">搜索推荐</a>|
+        <a href="#">友情链接</a>
+      </p>
+      <p>CopyRight © 小兔鲜</p>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
+<script>
+  function isNotNull(){
+    if(id === null){
+      alert("请从主页点击进入商品详情页，否则将无数据传入显示！");
+    }
+  }
+  isNotNull();
+</script>

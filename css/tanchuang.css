@@ -1,0 +1,54 @@
+/* 弹窗样式 */
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 400px;
+  background-color: rgba(0,0,0,0);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1000;
+}
+.modal.show {
+  opacity: 1;
+}
+.modal-content {
+  background-color: rgba(0,0,0,0);
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  animation: float 2s ease-in-out infinite; /* 添加浮动动画 *///
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+.box {
+  max-width: 100%;
+  margin: 0 auto;
+}
